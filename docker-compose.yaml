@@ -1,0 +1,13 @@
+version: "3"
+services:
+  mysql-db:
+    image: mysql:8.0
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: maplefusion
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"

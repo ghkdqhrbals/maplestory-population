@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: maplefusion-domain
+  config:
+    import:
+      - classpath:config/application-mysql.yaml
+  profiles:
+    group:
+      "default":
+        - "local"
+        - "local-mysql"
+      "local":
+        - "local"
+        - "local-mysql"

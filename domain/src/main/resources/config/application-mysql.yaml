@@ -1,0 +1,28 @@
+spring:
+  sql:
+    init:
+      mode: never
+---
+spring:
+  config.activate.on-profile: "local-mysql"
+  flyway:
+    enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3307/maplefusion
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    generate-ddl: false
+    open-in-view: true
+    database: MYSQL
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+      show_sql: false
+      format_sql: false
+      globally_quoted_identifiers: true
+      default_batch_fetch_size: 1
+      physical_naming_strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy

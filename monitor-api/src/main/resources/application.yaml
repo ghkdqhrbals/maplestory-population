@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: monitor-api
+  profiles:
+    group:
+      "default-module":
+          - "local-module"
+      "local-module":
+          - "develop-auth"
+          - "module-develop-was"
+          - "module-local-mysql"
+      "develop-module":
+          - "develop-auth"
+          - "module-develop-was"
+          - "module-develop-mysql"
+      "prod-module":
+          - "prod-auth"
+          - "module-prod-was"
+          - "module-prod-mysql"
+      "test-module":
+          - "develop-auth"
+          - "module-develop-was"
+          - "module-test-container-mysql"
+
+server:
+  port: 8080
