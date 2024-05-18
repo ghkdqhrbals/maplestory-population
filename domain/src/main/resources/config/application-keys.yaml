@@ -1,0 +1,9 @@
+---
+spring:
+  config.activate.on-profile: "local-keys"
+keys:
+  maple:
+    api:
+      host: https://open.api.nexon.com
+      key: test_810ef4e415e6dedb41f9da537760be00338da3d45df1b66b5aad5bfa08cabfd83ed046540ce8a26e0f5292b6ee4ba61d
+---

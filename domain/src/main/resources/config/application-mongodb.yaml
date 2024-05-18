@@ -1,0 +1,21 @@
+---
+spring:
+  config:
+    activate:
+      on-profile: local-mongodb
+
+maplefusion:
+  master:
+    jdbcUrl: jdbc:mysql://localhost:3307/maplefusion
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  batch:
+    jdbcUrl: jdbc:mysql://localhost:3307/batch
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mongodb:
+    uri: mongodb://localhost:27017/maplefusion
+    auto-index-creation: true
+---

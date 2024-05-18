@@ -48,6 +48,7 @@ dependencies {
     api("org.testcontainers:mysql")
     api("org.flywaydb:flyway-mysql")
     api("org.springframework.boot:spring-boot-starter-data-jpa")
+    api("org.springframework.boot:spring-boot-starter-data-mongodb")
     api("org.flywaydb:flyway-core")
 }
 

@@ -5,13 +5,19 @@ spring:
     import:
       - classpath:config/application-mysql.yaml
       - classpath:config/application-logging.yaml
+      - classpath:config/application-mongodb.yaml
+      - classpath:config/application-keys.yaml
   profiles:
     group:
       default:
         - "local"
         - "local-mysql"
         - "local-logging"
+        - "local-mongodb"
+        - "local-keys"
       local:
         - "local"
         - "local-mysql"
         - "local-logging"
+        - "local-mongodb"
+        - "local-keys"
