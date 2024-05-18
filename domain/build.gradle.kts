@@ -30,22 +30,25 @@ repositories {
 extra["springAiVersion"] = "0.8.1"
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.flywaydb:flyway-core")
-    implementation("org.flywaydb:flyway-mysql")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-
+    implementation ("com.amazonaws:aws-java-sdk-core:1.12.163")
+    implementation ("com.amazonaws:aws-java-sdk-secretsmanager:1.12.163")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("com.mysql:mysql-connector-j")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     annotationProcessor("org.projectlombok:lombok")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:mysql")
+
+    api("org.testcontainers:mysql")
+    api("org.flywaydb:flyway-mysql")
+    api("org.springframework.boot:spring-boot-starter-data-jpa")
+    api("org.flywaydb:flyway-core")
 }
 
 dependencyManagement {

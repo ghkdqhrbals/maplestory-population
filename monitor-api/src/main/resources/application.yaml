@@ -1,26 +1,11 @@
 spring:
   application:
     name: monitor-api
-  profiles:
-    group:
-      "default-module":
-          - "local-module"
-      "local-module":
-          - "develop-auth"
-          - "module-develop-was"
-          - "module-local-mysql"
-      "develop-module":
-          - "develop-auth"
-          - "module-develop-was"
-          - "module-develop-mysql"
-      "prod-module":
-          - "prod-auth"
-          - "module-prod-was"
-          - "module-prod-mysql"
-      "test-module":
-          - "develop-auth"
-          - "module-develop-was"
-          - "module-test-container-mysql"
+
+maple:
+  api:
+    host: https://open.api.nexon.com
+    key: test_810ef4e415e6dedb41f9da537760be00338da3d45df1b66b5aad5bfa08cabfd83ed046540ce8a26e0f5292b6ee4ba61d
 
 server:
   port: 8080

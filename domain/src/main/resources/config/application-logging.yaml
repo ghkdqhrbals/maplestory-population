@@ -1,0 +1,13 @@
+spring:
+  config.activate.on-profile: "local-logging"
+
+logging:
+  level:
+    root: INFO
+    org.maple.monitor: DEBUG
+    logger:
+      org.hibernate.SQL: DEBUG
+      org.hibernate.type.descriptor.sql.BasicBinder: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n"
+---
