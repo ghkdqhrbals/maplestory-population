@@ -1,10 +1,45 @@
-spring:
-  sql:
-    init:
-      mode: never
+#spring:
+#  sql:
+#    init:
+#      mode: never
 ---
 spring:
-  config.activate.on-profile: "local-mysql"
+  config:
+    activate:
+      on-profile: local-mysql
+  flyway:
+    enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    generate-ddl: false
+    open-in-view: true
+    database: MYSQL
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+      show_sql: true
+      format_sql: true
+      globally_quoted_identifiers: true
+      default_batch_fetch_size: 1
+      physical_naming_strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+
+maplefusion:
+  master:
+    jdbcUrl: jdbc:mysql://localhost:3307/maplefusion
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  batch:
+    jdbcUrl: jdbc:mysql://localhost:3307/batch
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+---
+spring:
+  config:
+    activate:
+      on-profile: develop-mysql
   flyway:
     enabled: false
   datasource:

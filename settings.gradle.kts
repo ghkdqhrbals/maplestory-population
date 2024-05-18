@@ -1,2 +1,2 @@
 rootProject.name = "stats"
-include(":domain","monitor-api")
+include(":domain","monitor-api","batch")

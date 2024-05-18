@@ -4,11 +4,14 @@ spring:
   config:
     import:
       - classpath:config/application-mysql.yaml
+      - classpath:config/application-logging.yaml
   profiles:
     group:
-      "default":
+      default:
         - "local"
         - "local-mysql"
-      "local":
+        - "local-logging"
+      local:
         - "local"
         - "local-mysql"
+        - "local-logging"

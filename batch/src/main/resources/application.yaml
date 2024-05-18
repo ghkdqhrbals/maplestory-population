@@ -1,0 +1,22 @@
+server:
+  port: 8081
+spring:
+  batch:
+    job:
+      name: ${job.name:NONE}
+      enabled: ${startJobAfterInit:true}
+    jdbc:
+      platform: mysql
+      initialize-schema: always
+  application:
+    name: maplefusion-batch
+batch:
+  database:
+    jdbcUrl: jdbc:mysql://localhost:3307/batch?useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 5
+      minimum-idle: 2
