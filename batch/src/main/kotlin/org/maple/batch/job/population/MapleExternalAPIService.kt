@@ -14,15 +14,6 @@ class MapleExternalAPIService(
         }.sorted()
     }
 
-
-    /**
-     * Page 1 부터 시작 ~ infinite
-     *
-     * webFlux 로 동시전송 및 동시에 받기
-     * 1, 2, 3 ... 빈 값 받을 떄까지
-     *
-     * 1000 페이지 단위로 병렬실행
-     */
     fun fetchPage(date: OffsetDateTime, page: Int): RankResponseWrapper? {
         return mapleClient.client.get().uri("/maplestory/v1/ranking/overall?date=${DateFormats.refine(date.toLocalDateTime())}" +
                 "&page=$page")
