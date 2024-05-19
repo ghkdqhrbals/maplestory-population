@@ -1,4 +1,4 @@
-package org.maple.monitor.external
+package org.maple.batch.job.population
 
 import org.maple.domain.common.util.Jackson
 import org.springframework.beans.factory.annotation.Value

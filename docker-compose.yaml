@@ -12,3 +12,12 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: maplefusion
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  mongo-db:
+    image: arm64v8/mongo:6.0.12
+    ports:
+      - "27018:27017"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G

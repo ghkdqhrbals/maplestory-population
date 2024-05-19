@@ -11,13 +11,7 @@ import kotlin.system.exitProcess
 @EnableScheduling
 class BatchApplication
 fun main(args: Array<String>) {
-    val exitRequested = !args.contains("--always-run")
-
-    val context = runApplication<BatchApplication>(*args) {
+    runApplication<BatchApplication>(*args) {
         setBannerMode(Banner.Mode.OFF)
-    }
-
-    if (exitRequested) {
-        exitProcess(SpringApplication.exit(context))
     }
 }

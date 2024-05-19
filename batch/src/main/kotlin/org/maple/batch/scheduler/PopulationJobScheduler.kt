@@ -16,11 +16,7 @@ class PopulationJobScheduler(
     @Qualifier("PopulationCheckJob")
     private val populationCheckJob: Job
 ) {
-    @Scheduled(
-        cron = "* * * * * *",
-        zone = "Asia/Seoul",
-
-    )
+    @Scheduled(cron = "*/10 * * * * *")
     fun runHelloWorldJob() {
         val currentTime = JobParametersBuilder().addLong("time", System.currentTimeMillis())
         val jobExecution = jobLauncher.run(populationCheckJob, currentTime.toJobParameters())
