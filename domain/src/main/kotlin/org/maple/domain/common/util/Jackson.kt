@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.databind.json.JsonMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.readValue
 
 object Jackson {
     private val mapper: ObjectMapper = JsonMapper.builder()
@@ -14,6 +15,9 @@ object Jackson {
         .build()
 
     fun getMapper(isSnakeCase: Boolean): ObjectMapper = if (isSnakeCase) snakeCaseMapper else mapper
+    fun getMapper(): ObjectMapper {
+        return getMapper(false)
+    }
 
     private val snakeCaseMapper: ObjectMapper = JsonMapper.builder()
         .enable(SerializationFeature.INDENT_OUTPUT)
@@ -22,3 +26,5 @@ object Jackson {
         .build()
         .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
 }
+
+inline fun <reified T> String.fromJson(): T = Jackson.getMapper().readValue(this)

@@ -46,6 +46,9 @@ class PopulationCheckJob(
     private var currentPage = 1
 
 
+    /**
+     * population API check job
+     */
     @Bean(JOB_NAME)
     fun job(printHelloWorld: Step): Job {
         rankRepository.findAllByDateIs(LocalDateTime.now())
@@ -65,7 +68,6 @@ class PopulationCheckJob(
             .processor(itemProcessor())
             .writer(itemWriter())
             .build()
-
     }
 
     fun stepExecutionListener(): StepExecutionListener {
@@ -85,25 +87,17 @@ class PopulationCheckJob(
 
     fun itemProcessor(): ItemProcessor<RankResponseWrapper, RankResponseWrapper> {
         return ItemProcessor { item ->
-            // Process the item here if needed
+            // TODO 경험치 변동사항이 있는 경우에 접속했다고 판단.
             item
         }
     }
 
     fun itemWriter(): ItemWriter<RankResponseWrapper> {
         return ItemWriter { items ->
-            // Write the items here, e.g., save to database
+            // FIXME: 여기에 데이터 저장
             items.forEach { item -> println("Writing item: $item") }
         }
     }
-
-//    @Bean
-//    fun myTasklet(): MethodInvokingTaskletAdapter {
-//        val adapter = MethodInvokingTaskletAdapter()
-//        adapter.setTargetObject(this)
-//        adapter.setTargetMethod("printHelloWorldMessage")
-//        return adapter
-//    }
 
     fun printHelloWorldMessage() {
         val fetchPage = mapleExternalAPIService.fetchPage(OffsetDateTime.now(), 1)
